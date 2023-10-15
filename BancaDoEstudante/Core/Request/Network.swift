@@ -9,7 +9,7 @@ import Foundation
 
 class Network {
     func getNotasEntradas(data: FindEntrada, completion: @escaping (Result<[NotasEntradas]?, Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:3000/notasEntradas/\( data.titulo)/\(data.edicao)/\(data.codigoEntrada)/\(data.codigoSaida)") else {
+        guard let url = URL(string: "https://sbrapi.fly.dev/notasEntradas/\( data.titulo)/\(data.edicao)/\(data.codigoEntrada)/\(data.codigoSaida)") else {
             return
         }
         var request = URLRequest(url: url)
@@ -29,7 +29,7 @@ class Network {
     
     func getNotasEntradas(id: Int?, completion: @escaping (Result<NotasEntradas?, Error>) -> Void) {
         guard let id else { return }
-        guard let url = URL(string: "http://localhost:3000/notasEntradas/id/\(id)") else {
+        guard let url = URL(string: "https://sbrapi.fly.dev/notasEntradas/id/\(id)") else {
             return
         }
         var request = URLRequest(url: url)
@@ -48,7 +48,7 @@ class Network {
     }
     
     func getNotasEntradas(entrada: Int, completion: @escaping (Result<[NotasEntradas]?, Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:3000/notasEntradas/\(entrada)") else {
+        guard let url = URL(string: "https://sbrapi.fly.dev/notasEntradas/\(entrada)") else {
             return
         }
         var request = URLRequest(url: url)
@@ -68,7 +68,7 @@ class Network {
     
     func editNotaEntrada(nota: NotasEntradas, completion: @escaping (Result<NotasEntradas?, Error>) -> Void) {
         guard let id = nota.id else { return }
-        guard let url = URL(string: "http://localhost:3000/notasEntradas/edit/\(id)") else {
+        guard let url = URL(string: "https://sbrapi.fly.dev/notasEntradas/edit/\(id)") else {
             return
         }
         var request = URLRequest(url: url)
